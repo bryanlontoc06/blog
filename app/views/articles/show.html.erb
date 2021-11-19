@@ -1,0 +1,8 @@
+<h1>Selected Article</h1>
+<h3>Name:<%= @article.name %></h3>
+<h3>Body:<%= @article.body %></h3>
+
+
+
+<%= link_to "Back to article lists", articles_path %> |
+<%= link_to "Edit this article", edit_article_path(@article) %>
