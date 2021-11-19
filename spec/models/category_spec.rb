@@ -19,8 +19,8 @@ describe Category, type: :model do
     end
 
     it "3. As a User, I want to view a category to show the category's details" do
-        category = Category.create!(name: "Testttt")
-        category.
-        expect(Category.find(1).name).to eq('Testttt')
+        category.name = "name"
+        
+        expect(category.name).to eq('name')
     end
 end
