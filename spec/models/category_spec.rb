@@ -20,7 +20,6 @@ describe Category, type: :model do
 
     it "3. As a User, I want to view a category to show the category's details" do
         category.name = "name"
-        
         expect(category.name).to eq('name')
     end
 end
