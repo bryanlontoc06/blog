@@ -14,7 +14,7 @@ describe Category, type: :model do
 
     it "2. As a User, I want to edit a category to update the category's details" do
         category = Category.create!(name: "Testttt")
-        category.update(name: 'This is the updated')
+        category.update!(name: 'This is the updated')
         expect(category.name).to eq("This is the updated")
     end
 
