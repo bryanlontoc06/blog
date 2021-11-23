@@ -25,10 +25,12 @@ RSpec.describe "Categories-Routes", :type => :request do
 
   describe "GET /categories/show" do
     it "3. As A User, I want to view a category to show the category's details" do
-      # get categories_path
-      get '/categories/123', params: {name: 'categorytest'}
+      Category.create!(name: "test category")
+      id = Category.last.id
+      get categories_path(id)
       expect(response).to be_successful
       expect(response).to have_http_status(200)
+      expect(response).to render_template(:index)
     end
   end
 end
