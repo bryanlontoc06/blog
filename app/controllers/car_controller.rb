@@ -1,4 +1,4 @@
 class CarController < ApplicationController
-  def name:string
+  def name
   end
 end
