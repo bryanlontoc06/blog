@@ -22,14 +22,6 @@ ActiveRecord::Schema.define(version: 2021_11_26_115720) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "cars", force: :cascade do |t|
-    t.string "brand"
-    t.string "model"
-    t.integer "year"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -39,6 +31,14 @@ ActiveRecord::Schema.define(version: 2021_11_26_115720) do
   create_table "comments", force: :cascade do |t|
     t.string "body"
     t.integer "article_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.string "subject"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
