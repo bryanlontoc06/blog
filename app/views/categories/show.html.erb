@@ -1,7 +1,8 @@
 <h1>Selected Category</h1>
 <h3>Name:<%= @category.name %></h3>
 
-
-
-<%= link_to "Back to category lists", categories_path %> |
+<%= render 'tasks/index', tasks: @tasks %>
+<br />
+<br />
+<%= link_to 'Back', categories_path %> |
 <%= link_to "Edit this category", edit_category_path(@category) %>

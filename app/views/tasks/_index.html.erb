@@ -1,0 +1,33 @@
+<br />
+<h1>Tasks</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Body</th>
+            <th>Task Date</th>
+            <th>Status</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @tasks.each do |task| %>
+            <tr>
+                <td><%= task.id %></td>
+                <td><%= task.body %></td>
+                <td><%= task.task_date %>
+                <% if task.task_date == Date.today %>
+                    <td>Due Today</td>
+                <% else %>
+                    <td>Not Due Today</td>
+                <% end %>
+                <td><%= link_to 'Show', category_task_path(@category.id, task) %></td>
+                <td><%= link_to 'Edit', edit_category_task_path(@category.id, task) %></td>
+                <td><%= link_to 'Delete', category_task_path(@category, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<br />
+<%= link_to 'Add Task', new_category_task_path(@category) %>
