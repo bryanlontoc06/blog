@@ -17,16 +17,13 @@ RSpec.describe "Tasks request", type: :request do
   let!(:category) {Category.create!(name: 'Test Category')}
   let!(:task) {Task.create!(category_id: category.id, name: 'test name', body: 'this is a test body', task_date: Date.current)}
 
-  describe "GET #index" do
-      before do
-          sign_in create(:user)
-      end
+  before do
+    sign_in create(:user)
   end
   
   describe "GET /show" do
     it "redirects to /categories/:category_id/tasks/:id" do
       get category_task_path(category.id, task.id)
-      expect(response).to be_successful
       expect(response).to have_http_status(200)
       expect(response).to render_template(:show)
     end
@@ -35,7 +32,6 @@ RSpec.describe "Tasks request", type: :request do
   describe "GET /new" do
     it "redirects to /categories/:category_id/tasks/new" do
       get new_category_task_path(category.id, task.id)
-      expect(response).to be_successful
       expect(response).to have_http_status(200)
       expect(response).to render_template(:new)
     end
@@ -44,7 +40,6 @@ RSpec.describe "Tasks request", type: :request do
   describe "GET /edit" do
     it "redirects to /categories/:category_id/tasks/:id/edit" do
       get edit_category_task_path(category.id, task.id)
-      expect(response).to be_successful
       expect(response).to have_http_status(200)
       expect(response).to render_template(:edit)
     end

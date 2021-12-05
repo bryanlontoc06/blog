@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe TasksController, type: :routing do
+RSpec.describe "Tasks Controller", type: :routing do
   describe "Tasks routing" do
     # it "routes to #index" do
     #   expect(get: "/tasks").to route_to("tasks#index")

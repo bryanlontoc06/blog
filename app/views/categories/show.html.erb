@@ -1,6 +1,32 @@
 <h1>Selected Category</h1>
 <h3>Name:<%= @category.name %></h3>
 
+
+<br />
+    <h2>Tasks For Today</h2>
+    <% if @dueToday.length > 1 %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Body</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @dueToday.each do |due| %>
+                <tr>
+                    <td><%= due.name %></td>
+                    <td><%= due.body %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% else %> 
+        <p>No Task/s available for now</p>
+    <% end %>
+<br />
+
+
 <%= render 'tasks/index', tasks: @tasks %>
 <br />
 <br />

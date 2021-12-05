@@ -2,7 +2,7 @@ require 'rails_helper'
 # RSpec.describe Category, type: :model do
 #   pending "add some examples to (or delete) #{__FILE__}"
 # end
-describe Category, type: :model do
+describe "Category models", type: :model do
     let!(:category) {Category.new}
     it '1. As a User, I want to create a category that can be used to organize my tasks' do
         category_count = Category.count

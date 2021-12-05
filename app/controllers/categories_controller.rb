@@ -2,11 +2,13 @@ class CategoriesController < ApplicationController
     before_action :authenticate_user!
     def index
         @categories = Category.all
+        @dueToday = Task.all.where(task_date: Date.current)
     end
 
     def show
        @category = Category.find(params[:id])
        @tasks = @category.tasks
+       @dueToday = @tasks.where(task_date: Date.current)
     #    byebug
     end
 
@@ -50,4 +52,5 @@ class CategoriesController < ApplicationController
     def category_params
         params.require(:category).permit(:name, :body)
     end
+
 end

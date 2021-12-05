@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "Categories request", :type => :request do
-  describe "GET #index" do
-    before do
-      sign_in create(:user)
-    end
+RSpec.describe "Categories request", type: :request do
+  before do
+    sign_in create(:user)
   end
+  # describe "GET #index" do
+  # end
 
   describe "GET /categories/new" do
     it "1. As a User, I want to create a category that can be used to organize my tasks" do
@@ -24,7 +24,7 @@ RSpec.describe "Categories request", :type => :request do
       Category.create!(name: "test category")
       id = Category.last.id
       get edit_category_path(id)
-      expect(response).to have_http_status(302)
+      expect(response).to have_http_status(200)
       expect(response).to render_template(:edit)
     end
   end
@@ -35,7 +35,7 @@ RSpec.describe "Categories request", :type => :request do
       id = Category.last.id
       get categories_path(id)
       expect(response).to be_successful
-      expect(response).to have_http_status(302)
+      expect(response).to have_http_status(200)
       expect(response).to render_template(:index)
     end
   end

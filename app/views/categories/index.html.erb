@@ -24,5 +24,30 @@
     </tbody>
 </table>
 <br />
+
+<h2>Tasks For Today</h2>
+<% if @dueToday.length > 1 %>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Body</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @dueToday.each do |due| %>
+            <tr>
+                <td><%= due.name %></td>
+                <td><%= due.body %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% else %> 
+    <p>No Task/s available for now</p>
+<% end %>
+
+<br />
+<br />
 <%= link_to 'Back to Home page', root_path %> |
 <%= link_to 'New Category', new_category_path %>

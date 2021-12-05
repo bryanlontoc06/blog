@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe CategoriesController, type: :routing do
+RSpec.describe "Categories Controller", type: :routing do
   describe "Categories routing" do
     it "1. Routes to #index" do
       expect(get: "/categories").to route_to("categories#index")
